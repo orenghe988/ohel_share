@@ -5,18 +5,11 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => HomepageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class HomepageState extends State<MyHomePage> {
+  int count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +19,17 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        child: Text(
+          style: const TextStyle(fontSize: 25),
+          "$count",
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          setState(() {
+            count++;
+          });
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
