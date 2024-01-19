@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:flutter_localizations/flutter_localizations.dart";
 import "utils/supabase_utils.dart";
 import "routing/router.dart";
 
@@ -14,13 +15,20 @@ class OhelShareApplication extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp.router(
         title: 'Ohel-Share',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('he', 'IL'),
+        ],
         routerConfig: routerConfig,
     );
   }

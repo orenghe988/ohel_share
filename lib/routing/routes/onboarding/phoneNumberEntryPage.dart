@@ -17,23 +17,6 @@ class PhoneNumberEntryPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "WELCOME TO OHEL SHARE",
-              style: TextStyle(
-                fontSize: 29,
-                background: Paint()
-                  ..color = Colors.blue
-                  ..strokeWidth = 20
-                  ..strokeJoin = StrokeJoin.round
-                  ..strokeCap = StrokeCap.round
-                  ..style = PaintingStyle.fill
-                  ..style = PaintingStyle.stroke,
-                height: 10,
-              ),
-            ),
-            const SizedBox(
-              height: 150,
-            ),
             TextField(
               keyboardType: TextInputType.number,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -45,7 +28,6 @@ class PhoneNumberEntryPage extends StatelessWidget {
                 prefixIcon: Icon(Icons.phone),
               ),
             ),
-            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 String phoneNumber = phoneNumberController.text;
