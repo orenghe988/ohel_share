@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import "package:flutter_localizations/flutter_localizations.dart";
 import "utils/supabase_utils.dart";
 import "routing/router.dart";
+import 'package:google_fonts/google_fonts.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,7 @@ class OhelShareApplication extends StatelessWidget {
         theme: ThemeData(
           // TODO disable ugly android click sound for the entire app
           // TODO make color change when click instant
+          fontFamily: GoogleFonts.notoSansHebrew().fontFamily,
           splashFactory: NoSplash.splashFactory,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
