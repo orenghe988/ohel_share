@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import "../../../common/buttons/expanded_button.dart";
 
 class PhoneNumberEntryPage extends StatelessWidget {
   final TextEditingController phoneNumberController = TextEditingController();
@@ -28,11 +29,8 @@ class PhoneNumberEntryPage extends StatelessWidget {
                 prefixIcon: Icon(Icons.phone),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                String phoneNumber = phoneNumberController.text;
-              },
-              child: const Text('Send'),
+            const ExpandedButton(
+              text: "continue",
             ),
           ],
           //TODO set a length for the input

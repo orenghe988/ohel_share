@@ -2,8 +2,8 @@ import "package:flutter/cupertino.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "package:go_router/go_router.dart";
 import "package:supabase_flutter/supabase_flutter.dart";
-import "routes/onboarding/phoneNumberEntryPage.dart";
-import "../states/authState.dart";
+import "routes/onboarding/phone_number_entry_page.dart";
+import "../states/auth_state.dart";
 import "../utils/supabase_utils.dart";
 import 'routes/home.dart' show MyHomePage;
 

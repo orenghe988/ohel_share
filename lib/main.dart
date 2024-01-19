@@ -18,6 +18,9 @@ class OhelShareApplication extends StatelessWidget {
     return MaterialApp.router(
         title: 'Ohel-Share',
         theme: ThemeData(
+          // TODO disable ugly android click sound for the entire app
+          // TODO make color change when click instant
+          splashFactory: NoSplash.splashFactory,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
