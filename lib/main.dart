@@ -16,13 +16,12 @@ class OhelShareApplication extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp.router(
-        title: 'Ohel Share',
+        title: 'Ohel-Share',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
         routerConfig: routerConfig,
     );
-
   }
 }
