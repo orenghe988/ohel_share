@@ -21,7 +21,7 @@ class OhelShareApplication extends StatelessWidget {
         theme: ThemeData(
           // TODO disable ugly android click sound for the entire app
           // TODO make color change when click instant
-          fontFamily: GoogleFonts.notoSansHebrew().fontFamily,
+          fontFamily: GoogleFonts.ibmPlexSansHebrew().fontFamily,
           splashFactory: NoSplash.splashFactory,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,

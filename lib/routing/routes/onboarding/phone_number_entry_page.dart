@@ -2,6 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import "../../../common/buttons/expanded_button.dart";
 
+class _UpperText extends StatelessWidget {
+  const _UpperText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 36),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 42,
+              fontWeight: FontWeight.w900,
+            ),
+            "ברוכים הבאים",
+          ),
+          Text(
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black38,
+              ),
+              "הוראות להתחברות ושימוש באפליקציה"),
+        ],
+      ),
+    );
+  }
+}
+
 class PhoneNumberEntryPage extends StatelessWidget {
   final TextEditingController phoneNumberController = TextEditingController();
 
@@ -15,6 +46,7 @@ class PhoneNumberEntryPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const _UpperText(),
             TextField(
               keyboardType: TextInputType.number,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
