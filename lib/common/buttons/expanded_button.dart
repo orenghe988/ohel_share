@@ -11,7 +11,7 @@ class ExpandedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 45,
+      height: 55,
       width: double.infinity,
       child: FilledButton(
         style: FilledButton.styleFrom(
@@ -21,7 +21,14 @@ class ExpandedButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed ?? () {},
-        child: Text(text),
+        child: Text(
+          style: const TextStyle(
+            fontSize: 21,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 0.25,
+          ),
+          text,
+        ),
       ),
     );
   }

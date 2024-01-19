@@ -7,7 +7,13 @@ import "../states/auth_state.dart";
 import "../utils/supabase_utils.dart";
 import 'routes/home.dart' show MyHomePage;
 
-final routes = [
+void handleAuthStateChange(BuildContext context, OurAuthState state) {
+  if (state is SignedOut) {
+    context.go("/login/enter-phone-number");
+  }
+}
+
+final appRoutes = [
   GoRoute(
     path: "/",
     redirect: (_, __) => supabaseClient().auth.currentUser == null
@@ -28,32 +34,31 @@ final routes = [
   )
 ];
 
-void handleAuthStateChange(BuildContext context, OurAuthState state) {
-  if (state is SignedOut) {
-    context.go("/login/enter-phone-number");
-  }
-}
+final shellRoute = ShellRoute(
+  builder: (BuildContext context, GoRouterState state, Widget child) {
+    return RepositoryProvider(
+      create: (_) => Supabase.instance.client,
+      child: BlocProvider(
+        create: (BuildContext context) =>
+            AuthCubit(supabase: context.read<SupabaseClient>()),
+        child: BlocListener<AuthCubit, OurAuthState>(
+          listener: handleAuthStateChange,
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: child,
+          ),
+        ),
+      ),
+    );
+  },
+  routes: appRoutes,
+);
 
 final routerConfig = GoRouter(
   // TODO add onboarding page group and redirect function
   // TODO mark completed_onboarding in auth state
   initialLocation: "/",
   routes: [
-    ShellRoute(
-      builder: (BuildContext context, GoRouterState state, Widget child) {
-        return RepositoryProvider(
-          create: (_) => Supabase.instance.client,
-          child: BlocProvider(
-            create: (BuildContext context) =>
-                AuthCubit(supabase: context.read<SupabaseClient>()),
-            child: BlocListener<AuthCubit, OurAuthState>(
-              listener: handleAuthStateChange,
-              child: child,
-            ),
-          ),
-        );
-      },
-      routes: routes,
-    ),
+    shellRoute,
   ],
 );

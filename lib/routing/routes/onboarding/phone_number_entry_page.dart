@@ -10,13 +10,10 @@ class PhoneNumberEntryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             TextField(
               keyboardType: TextInputType.number,
@@ -30,7 +27,7 @@ class PhoneNumberEntryPage extends StatelessWidget {
               ),
             ),
             const ExpandedButton(
-              text: "continue",
+              text: "הבא",
             ),
           ],
           //TODO set a length for the input
