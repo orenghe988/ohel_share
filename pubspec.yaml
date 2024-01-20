@@ -41,7 +41,6 @@ dependencies:
   go_router: ^12.1.0
   flutter_dotenv: ^5.1.0
   supabase_flutter: ^1.10.24
-  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -92,6 +91,25 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+
+  fonts:
+    - family: IBM Plex Sans Hebrew
+      fonts:
+        - asset: assets/fonts/IBM-Plex/IBMPlexSansHebrew-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/IBM-Plex/IBMPlexSansHebrew-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/IBM-Plex/IBMPlexSansHebrew-Light.ttf
+          weight: 300
+        - asset: assets/fonts/IBM-Plex/IBMPlexSansHebrew-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/IBM-Plex/IBMPlexSansHebrew-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/IBM-Plex/IBMPlexSansHebrew-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/IBM-Plex/IBMPlexSansHebrew-Bold.ttf
+          weight: 700
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

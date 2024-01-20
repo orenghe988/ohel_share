@@ -16,17 +16,22 @@ class _UpperText extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 42,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w600,
+              letterSpacing: -.5,
             ),
             "ברוכים הבאים",
           ),
+          SizedBox(
+            height: 10,
+          ),
           Text(
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black38,
-              ),
-              "הוראות להתחברות ושימוש באפליקציה"),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black38,
+            ),
+            "[תיאור האפליקציה]",
+          ),
         ],
       ),
     );

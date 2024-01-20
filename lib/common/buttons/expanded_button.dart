@@ -6,25 +6,27 @@ class ExpandedButton extends StatelessWidget {
   final void Function()? onPressed;
 
   const ExpandedButton(
-      {super.key, required this.text, this.color, this.onPressed});
+      {super.key, required this.text, this.onPressed, this.color});
 
   @override
   Widget build(BuildContext context) {
+    final color = this.color ?? Theme.of(context).colorScheme.primary;
+
     return SizedBox(
       height: 53,
       width: double.infinity,
       child: FilledButton(
+        onPressed: onPressed ?? () {},
         style: FilledButton.styleFrom(
-          backgroundColor: color ?? Theme.of(context).colorScheme.primary,
+          backgroundColor: color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        onPressed: onPressed ?? () {},
         child: Text(
           style: const TextStyle(
             fontSize: 21,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
           text,
         ),
