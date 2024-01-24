@@ -25,7 +25,7 @@ class ExpandedButton extends StatelessWidget {
         ),
         child: Text(
           style: const TextStyle(
-            fontSize: 21,
+            fontSize: 24,
             fontWeight: FontWeight.w500,
           ),
           text,

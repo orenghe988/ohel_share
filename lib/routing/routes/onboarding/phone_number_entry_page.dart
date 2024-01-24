@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import "../../../common/text_input.dart";
 import "../../../common/buttons/expanded_button.dart";
 
 class _UpperText extends StatelessWidget {
-  const _UpperText({super.key});
+  const _UpperText();
 
   @override
   Widget build(BuildContext context) {
@@ -15,22 +16,23 @@ class _UpperText extends StatelessWidget {
           Text(
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 42,
+              fontSize: 48,
               fontWeight: FontWeight.w600,
               letterSpacing: -.5,
             ),
             "ברוכים הבאים",
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           Text(
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16,
+              fontWeight: FontWeight.w500,
               color: Colors.black38,
             ),
-            "[תיאור האפליקציה]",
+            "הזינו את מספר הטלפון שלכם כדי להתחבר",
           ),
         ],
       ),
@@ -39,31 +41,20 @@ class _UpperText extends StatelessWidget {
 }
 
 class PhoneNumberEntryPage extends StatelessWidget {
-  final TextEditingController phoneNumberController = TextEditingController();
 
-  PhoneNumberEntryPage({super.key});
+  const PhoneNumberEntryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const _UpperText(),
-            TextField(
-              keyboardType: TextInputType.number,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              maxLength: 10,
-              controller: TextEditingController(text: "05"),
-              decoration: const InputDecoration(
-                hintStyle: TextStyle(fontSize: 10.0),
-                labelText: 'Enter Phone Number',
-                prefixIcon: Icon(Icons.phone),
-              ),
-            ),
-            const ExpandedButton(
+            _UpperText(),
+            OurTextInput(),
+            ExpandedButton(
               text: "הבא",
             ),
           ],
@@ -74,3 +65,5 @@ class PhoneNumberEntryPage extends StatelessWidget {
     );
   }
 }
+
+int x = 5;
