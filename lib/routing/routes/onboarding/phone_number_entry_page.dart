@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import "../../../common/buttons/expanded_button.dart";
+import "package:go_router/go_router.dart";
 
 class _UpperText extends StatelessWidget {
   const _UpperText({super.key});
@@ -59,12 +60,15 @@ class PhoneNumberEntryPage extends StatelessWidget {
               controller: TextEditingController(text: "05"),
               decoration: const InputDecoration(
                 hintStyle: TextStyle(fontSize: 10.0),
-                labelText: 'Enter Phone Number',
+                labelText: 'הזן מספר טלפון',
                 prefixIcon: Icon(Icons.phone),
               ),
             ),
-            const ExpandedButton(
+            ExpandedButton(
               text: "הבא",
+              onPressed: () {
+                context.go("/");
+              },
             ),
           ],
           //TODO set a length for the input
