@@ -1,80 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import "../../../common/text_input.dart";
 import "../../../common/buttons/expanded_button.dart";
-import "package:go_router/go_router.dart";
 
 class _UpperText extends StatelessWidget {
-  const _UpperText({super.key});
+  const _UpperText();
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 36),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 42,
-              fontWeight: FontWeight.w600,
-              letterSpacing: -.5,
-            ),
-            "ברוכים הבאים",
+    // TODO ADD OHEL SHARE IMAGE, ABOVE ALL
+    // TODO ADD PHONE ICON TO TEXT FIELD
+    return Container(
+        child: const Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Text(
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 48,
+            fontWeight: FontWeight.w600,
+            letterSpacing: -.5,
           ),
-          SizedBox(
-            height: 10,
+          "ברוכים הבאים",
+        ),
+        Text(
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Colors.black38,
           ),
-          Text(
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black38,
-            ),
-            "[תיאור האפליקציה]",
-          ),
-        ],
-      ),
-    );
+          "הזינו את מספר הטלפון שלכם כדי להתחבר",
+        ),
+      ],
+    ));
   }
 }
 
 class PhoneNumberEntryPage extends StatelessWidget {
-  final TextEditingController phoneNumberController = TextEditingController();
-
-  PhoneNumberEntryPage({super.key});
+  const PhoneNumberEntryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const _UpperText(),
-            TextField(
-              keyboardType: TextInputType.number,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              maxLength: 10,
-              controller: TextEditingController(text: "05"),
-              decoration: const InputDecoration(
-                hintStyle: TextStyle(fontSize: 10.0),
-                labelText: 'הזן מספר טלפון',
-                prefixIcon: Icon(Icons.phone),
-              ),
+            const Image(
+              image: NetworkImage(
+                  'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
             ),
-            ExpandedButton(
-              text: "הבא",
-              onPressed: () {
-                context.go("/");
-              },
-            ),
+            _UpperText(),
+            SizedBox(height: 70),
+            OurTextInput(isLtr: true, icon: Icon(Icons.phone_rounded)),
+            SizedBox(height: 30),
+            ExpandedButton(width: 200, text: "הבא"),
           ],
-          //TODO set a length for the input
-          //TODO make it start with 05
         ),
       ),
     );
   }
 }
+
+int x = 5;
