@@ -1,29 +1,11 @@
 import "package:flutter/material.dart";
 
-class OurTextInput extends StatefulWidget {
+class OurTextInput extends StatelessWidget {
   final double? width;
   final double? height;
+  final TextEditingController? _controller;
 
-  const OurTextInput({super.key, this.width, this.height});
-
-  @override
-  State<OurTextInput> createState() => _OurTextInputState();
-}
-
-class _OurTextInputState extends State<OurTextInput> {
-  late TextEditingController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  OurTextInput({super.key, this.width, this.height, controller}) : _controller = controller;
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +15,10 @@ class _OurTextInputState extends State<OurTextInput> {
         borderRadius: BorderRadius.circular(12),
       ),
       child: TextField(
-        controller: _controller,
-        decoration: const InputDecoration(
-          border: InputBorder.none,
-        )
+          controller: _controller,
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+          )
       ),
     );
   }

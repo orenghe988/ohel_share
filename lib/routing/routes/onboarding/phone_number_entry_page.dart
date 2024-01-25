@@ -40,21 +40,41 @@ class _UpperText extends StatelessWidget {
   }
 }
 
-class PhoneNumberEntryPage extends StatelessWidget {
+class PhoneNumberEntryPage extends StatefulWidget {
+  PhoneNumberEntryPage({super.key});
 
-  const PhoneNumberEntryPage({super.key});
+  @override
+  State<PhoneNumberEntryPage> createState() => _PhoneNumberEntryPageState();
+}
+
+class _PhoneNumberEntryPageState extends State<PhoneNumberEntryPage> {
+  late TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _UpperText(),
-            OurTextInput(),
-            ExpandedButton(
+            const _UpperText(),
+            OurTextInput(
+              controller: _controller,
+            ),
+            const ExpandedButton(
               text: "הבא",
             ),
           ],
