@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 
-
 class OurTextInput extends StatelessWidget {
   final double? width;
   final double? height;
@@ -11,7 +10,16 @@ class OurTextInput extends StatelessWidget {
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
 
-  const OurTextInput({super.key, this.width, this.height, this.isLtr = false, this.icon, this.keyboardType, this.inputFormatters, controller,}) : _controller = controller;
+  const OurTextInput({
+    super.key,
+    this.width,
+    this.height,
+    this.isLtr = false,
+    this.icon,
+    this.keyboardType,
+    this.inputFormatters,
+    controller,
+  }) : _controller = controller;
 
   @override
   Widget build(BuildContext context) {
