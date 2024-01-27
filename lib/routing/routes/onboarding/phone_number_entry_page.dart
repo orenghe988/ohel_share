@@ -43,21 +43,29 @@ class PhoneNumberEntryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Image(
-              image: NetworkImage(
-                  'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+            // const Image(
+            //   image: NetworkImage(
+            //       'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+            // ),
+            const _UpperText(),
+            // const SizedBox(height: 70),
+            OurTextInput(
+              isLtr: true,
+              icon: const Icon(Icons.phone_rounded),
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly,
+                LengthLimitingTextInputFormatter(10),
+              ],
             ),
-            _UpperText(),
-            SizedBox(height: 70),
-            OurTextInput(isLtr: true, icon: Icon(Icons.phone_rounded)),
-            SizedBox(height: 30),
-            ExpandedButton(width: 200, text: "הבא"),
+            // const SizedBox(height: 30),
+            const ExpandedButton(width: 200, text: "הבא"),
           ],
         ),
       ),

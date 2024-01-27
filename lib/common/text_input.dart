@@ -6,9 +6,18 @@ class OurTextInput extends StatefulWidget {
   final double? height;
   final bool isLtr;
   final Widget? icon;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
 
-  const OurTextInput(
-      {super.key, this.width, this.height, this.isLtr = false, this.icon});
+  const OurTextInput({
+    super.key,
+    this.width,
+    this.height,
+    this.isLtr = false,
+    this.icon,
+    this.keyboardType,
+    this.inputFormatters,
+  });
 
   @override
   State<OurTextInput> createState() => _OurTextInputState();
@@ -39,17 +48,19 @@ class _OurTextInputState extends State<OurTextInput> {
       ),
       child: TextField(
         controller: _controller,
-        keyboardType: TextInputType.number,
-        inputFormatters: <TextInputFormatter>[
-          FilteringTextInputFormatter.digitsOnly,
-          LengthLimitingTextInputFormatter(10),
-        ],
+        keyboardType: widget.keyboardType,
+        inputFormatters: widget.inputFormatters,
         decoration: InputDecoration(
-            contentPadding: const EdgeInsets.all(10.0),
-            border: InputBorder.none,
-            suffixIcon: widget.icon,
-            focusedBorder:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
+          contentPadding: const EdgeInsets.all(10.2),
+          border: InputBorder.none,
+          suffixIcon: widget.icon,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(
+              width: 1.75,
+            ),
+          ),
+        ),
         textDirection: widget.isLtr ? TextDirection.ltr : TextDirection.rtl,
       ),
     );

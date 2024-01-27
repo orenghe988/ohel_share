@@ -7,13 +7,14 @@ class ExpandedButton extends StatelessWidget {
   final MaterialColor? color;
   final void Function()? onPressed;
 
-  const ExpandedButton(
-      {super.key,
-      required this.text,
-      this.onPressed,
-      this.color,
-      this.height = 53,
-      this.width = double.infinity});
+  const ExpandedButton({
+    super.key,
+    required this.text,
+    this.onPressed,
+    this.color,
+    this.height = 53,
+    this.width = double.infinity,
+  });
 
   @override
   Widget build(BuildContext context) {
