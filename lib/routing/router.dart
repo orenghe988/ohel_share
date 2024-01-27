@@ -3,6 +3,7 @@ import "package:flutter_bloc/flutter_bloc.dart";
 import "package:go_router/go_router.dart";
 import "package:supabase_flutter/supabase_flutter.dart";
 import "routes/onboarding/phone_number_entry_page.dart";
+import 'routes/onboarding/verify-otp.dart';
 import "../states/auth_state.dart";
 import "../utils/supabase_utils.dart";
 import 'routes/home.dart' show MyHomePage;
@@ -29,6 +30,11 @@ final appRoutes = [
       GoRoute(
         path: "enter-phone-number",
         builder: (_, __) => PhoneNumberEntryPage(),
+      ),
+      GoRoute(
+        // Todo redirect if not sent otp
+        path: "verify-otp",
+        builder: (_, __) => VerifyOtp(),
       ),
     ],
   )
@@ -57,7 +63,8 @@ final shellRoute = ShellRoute(
 final routerConfig = GoRouter(
   // TODO add onboarding page group and redirect function
   // TODO mark completed_onboarding in auth state
-  initialLocation: "/",
+  // ! change to '/' before commit
+  initialLocation: "/login/verify-otp",
   routes: [
     shellRoute,
   ],
