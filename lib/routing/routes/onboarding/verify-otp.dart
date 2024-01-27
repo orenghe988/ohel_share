@@ -13,6 +13,9 @@ class _UpperText extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(
+            height: 80,
+          ),
           Text(
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -23,12 +26,12 @@ class _UpperText extends StatelessWidget {
             "ברוכים הבאים",
           ),
           SizedBox(
-            height: 5,
+            height: 18,
           ),
           Text(
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 18,
               fontWeight: FontWeight.w500,
               color: Colors.black38,
             ),
@@ -80,7 +83,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
             OurTextInput(
               controller: _controller,
               isLtr: true,
-              icon: const Icon(Icons.phone_rounded),
+              icon: const Icon(Icons.password),
               keyboardType: TextInputType.number,
               inputFormatters: <TextInputFormatter>[
                 FilteringTextInputFormatter.digitsOnly,
@@ -90,6 +93,9 @@ class _VerifyOtpState extends State<VerifyOtp> {
             // const SizedBox(height: 30),
             const ExpandedButton(
               text: "הבא",
+            ),
+            SizedBox(
+              height: 80,
             ),
           ],
         ),
