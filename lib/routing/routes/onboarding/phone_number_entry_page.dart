@@ -41,7 +41,7 @@ class _UpperText extends StatelessWidget {
 }
 
 class PhoneNumberEntryPage extends StatefulWidget {
-  PhoneNumberEntryPage({super.key});
+  const PhoneNumberEntryPage({super.key});
 
   @override
   State<PhoneNumberEntryPage> createState() => _PhoneNumberEntryPageState();
@@ -54,6 +54,7 @@ class _PhoneNumberEntryPageState extends State<PhoneNumberEntryPage> {
   void initState() {
     super.initState();
     _controller = TextEditingController();
+    _controller.text = "05";
   }
 
   @override
@@ -68,7 +69,7 @@ class _PhoneNumberEntryPageState extends State<PhoneNumberEntryPage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             // const Image(
             //   image: NetworkImage(
@@ -87,7 +88,9 @@ class _PhoneNumberEntryPageState extends State<PhoneNumberEntryPage> {
               ],
             ),
             // const SizedBox(height: 30),
-            const ExpandedButton(width: 200, text: "הבא"),
+            const ExpandedButton(
+              text: "הבא",
+            ),
           ],
         ),
       ),

@@ -11,7 +11,7 @@ class OurTextInput extends StatelessWidget {
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
 
-  OurTextInput({super.key, this.width, this.height, this.isLtr = false, this.icon, this.keyboardType, this.inputFormatters, controller,}) : _controller = controller;
+  const OurTextInput({super.key, this.width, this.height, this.isLtr = false, this.icon, this.keyboardType, this.inputFormatters, controller,}) : _controller = controller;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,13 @@ class OurTextInput extends StatelessWidget {
       ),
       child: TextField(
         controller: _controller,
-        keyboardType: widget.keyboardType,
-        inputFormatters: widget.inputFormatters,
-        textDirection: widget.isLtr ? TextDirection.ltr : TextDirection.rtl,
+        keyboardType: keyboardType,
+        inputFormatters: inputFormatters,
+        textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(10.2),
           border: InputBorder.none,
-          suffixIcon: widget.icon,
+          suffixIcon: icon,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: const BorderSide(
