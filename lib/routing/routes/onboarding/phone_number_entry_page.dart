@@ -68,22 +68,29 @@ class _PhoneNumberEntryPageState extends State<PhoneNumberEntryPage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            // const Image(
+            //   image: NetworkImage(
+            //       'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+            // ),
             const _UpperText(),
+            // const SizedBox(height: 70),
             OurTextInput(
               controller: _controller,
+              isLtr: true,
+              icon: const Icon(Icons.phone_rounded),
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly,
+                LengthLimitingTextInputFormatter(10),
+              ],
             ),
-            const ExpandedButton(
-              text: "הבא",
-            ),
+            // const SizedBox(height: 30),
+            const ExpandedButton(width: 200, text: "הבא"),
           ],
-          //TODO set a length for the input
-          //TODO make it start with 05
         ),
       ),
     );
   }
 }
-
-int x = 5;
